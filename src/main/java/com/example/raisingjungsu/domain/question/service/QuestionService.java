@@ -65,4 +65,17 @@ public class QuestionService {
                 q.getAnswerList()
         )).collect(Collectors.toList());
     }
+
+    @Transactional
+    public List<QuestionResponse> questionList(){
+        List<Question> questions = questionRepository.findAll();
+        return questions.stream().map(q -> new QuestionResponse(
+                q.getId(),
+                q.getTitle(),
+                q.getQuestion(),
+                q.getCategory(),
+                q.getUser(),
+                q.getAnswerList()
+        )).collect(Collectors.toList());
+    }
 }

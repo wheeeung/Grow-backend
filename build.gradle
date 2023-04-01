@@ -47,7 +47,6 @@ dependencies {
 
     //test
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    implementation 'javax.xml.bind:jaxb-api'
 }
 
 tasks.named('test') {
