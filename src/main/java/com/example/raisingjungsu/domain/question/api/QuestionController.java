@@ -32,4 +32,9 @@ public class QuestionController {
     public void delete(@PathVariable int question_id){
         questionService.delete(question_id);
     }
+
+    @GetMapping("/question/list")
+    public List<QuestionResponse> questionList(){
+        return questionService.questionList();
+    }
 }
