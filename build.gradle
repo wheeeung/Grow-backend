@@ -36,9 +36,10 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-redis'
     implementation 'org.springframework.boot:spring-boot-starter-data-mongodb-reactive'
 
-    //lombok
+    //setting
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
 
     //validation
     implementation 'org.springframework.boot:spring-boot-starter-validation'

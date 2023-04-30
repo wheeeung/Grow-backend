@@ -15,6 +15,8 @@ spring:
     redis:
       host: ${REDIS_HOST}
       port: ${REDIS_PORT}
+    mongodb:
+      uri: mongodb://localhost:27017/chat-app
 
 jwt:
   secret: ${JWT_SECRET}
