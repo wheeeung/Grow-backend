@@ -14,6 +14,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Date;
 
 @Slf4j
@@ -62,7 +63,7 @@ public class TokenProvider {
     public Authentication getAuthentication(String accessToken){
         Claims claims = parseClaims(accessToken);
 
-        UserDetails principal = new User(claims.getSubject(), "", null);
+        UserDetails principal = new User(claims.getSubject(), "", Collections.emptyList());
 
         return new UsernamePasswordAuthenticationToken(principal, "", null);
     }
