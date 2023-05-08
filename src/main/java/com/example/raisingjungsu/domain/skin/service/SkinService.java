@@ -1,5 +1,8 @@
 package com.example.raisingjungsu.domain.skin.service;
 
+import com.example.raisingjungsu.domain.question.api.dto.response.QuestionResponse;
+import com.example.raisingjungsu.domain.skin.api.dto.request.SkinRequest;
+import com.example.raisingjungsu.domain.skin.api.dto.response.SkinResponse;
 import com.example.raisingjungsu.domain.skin.domain.Skin;
 import com.example.raisingjungsu.domain.skin.exception.SkinNotBuyException;
 import com.example.raisingjungsu.domain.skin.exception.SkinNotFoundException;
@@ -11,6 +14,9 @@ import com.example.raisingjungsu.global.util.SecurityUtil;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -29,5 +35,29 @@ public class SkinService {
         user.editCoin(user.getCoin() - skin.getPrice());
         user.getSkinList().add(skin);
         userRepository.save(user);
+    }
+
+    @Transactional
+    public void addSkin(SkinRequest request){
+        Skin skin = Skin.builder()
+                .skinImg(request.getImg())
+                .price(request.getPrice())
+                .build();
+        skinRepository.save(skin);
+    }
+
+    @Transactional
+    public void deleteSkin(int skinId){
+        skinRepository.deleteById(skinId);
+    }
+
+    @Transactional
+    public List<SkinResponse> getAllSkin(){
+        List<Skin> skinList = skinRepository.findAll();
+        return skinList.stream().map(s -> new SkinResponse(
+                s.getId(),
+                s.getSkinImg(),
+                s.getPrice()
+        )).collect(Collectors.toList());
     }
 }
