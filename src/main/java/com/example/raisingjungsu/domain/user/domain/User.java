@@ -29,6 +29,7 @@ public class User {
 
     private int coin;
 
+    @Column(length = 999999999)
     private String image;
 
     @JsonIgnore
