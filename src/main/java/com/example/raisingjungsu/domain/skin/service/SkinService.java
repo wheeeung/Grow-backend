@@ -60,4 +60,10 @@ public class SkinService {
                 s.getPrice()
         )).collect(Collectors.toList());
     }
+
+    @Transactional
+    public SkinResponse getSkin(int skinId){
+        Skin skin = skinRepository.findById(skinId).orElseThrow(SkinNotFoundException::new);
+        return new SkinResponse(skin.getId(), skin.getSkinImg(), skin.getPrice());
+    }
 }
