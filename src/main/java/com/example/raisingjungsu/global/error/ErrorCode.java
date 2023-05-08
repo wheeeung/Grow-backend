@@ -11,13 +11,15 @@ public enum ErrorCode {
     PASSWORD_NOT_MATCHES(400, "incorrect password"),
     GOOD_ALREADY_EXIST(400, "good already exist"),
     BAD_ALREADY_EXIST(400, "bad already exist"),
+    SKIN_CANNOT_BUY(400, "you don't have enough coin"),
 
     //404
     USER_NOT_FOUND(404, "user not found"),
     QUESTION_NOT_FOUND(404, "question not found"),
     ANSWER_NOT_FOUND(404, "answer not found"),
     GOOD_NOT_FOUND(404, "good not found"),
-    BAD_NOT_FOUND(404, "bad not found");
+    BAD_NOT_FOUND(404, "bad not found"),
+    SKIN_NOT_FOUND(404, "skin not found");
 
 
     private final int httpStatus;
