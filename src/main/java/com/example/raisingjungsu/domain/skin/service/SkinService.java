@@ -1,6 +1,5 @@
 package com.example.raisingjungsu.domain.skin.service;
 
-import com.example.raisingjungsu.domain.question.api.dto.response.QuestionResponse;
 import com.example.raisingjungsu.domain.skin.api.dto.request.SkinRequest;
 import com.example.raisingjungsu.domain.skin.api.dto.response.SkinResponse;
 import com.example.raisingjungsu.domain.skin.domain.Skin;
