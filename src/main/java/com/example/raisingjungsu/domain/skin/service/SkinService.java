@@ -28,7 +28,7 @@ public class SkinService {
         Skin skin = skinRepository.findById(skinId).orElseThrow(SkinNotFoundException::new);
         User user = userRepository.findByEmail(SecurityUtil.getEmail()).orElseThrow(UserNotFoundException::new);
 
-        if(skin.getPrice() > user.getCoin())
+        if(skin.getPrice() > user.getCoin() && user.getSkinList().get(skinId) != null)
             throw new SkinNotBuyException();
 
         user.editCoin(user.getCoin() - skin.getPrice());

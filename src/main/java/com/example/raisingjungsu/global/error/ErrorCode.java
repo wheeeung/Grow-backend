@@ -11,7 +11,7 @@ public enum ErrorCode {
     PASSWORD_NOT_MATCHES(400, "incorrect password"),
     GOOD_ALREADY_EXIST(400, "good already exist"),
     BAD_ALREADY_EXIST(400, "bad already exist"),
-    SKIN_CANNOT_BUY(400, "you don't have enough coin"),
+    SKIN_CANNOT_BUY(400, "you don't have enough coin or exist skin"),
 
     //404
     USER_NOT_FOUND(404, "user not found"),
