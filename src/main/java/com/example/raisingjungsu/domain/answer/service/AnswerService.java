@@ -25,6 +25,8 @@ public class AnswerService {
     public void save(AnswerRequest request){
         User user = userRepository.findByEmail(SecurityUtil.getEmail()).orElseThrow(UserNotFoundException::new);
         Question question = questionRepository.findById(request.getQuestion_id()).orElseThrow(QuestionNotFoundException::new);
+        user.editCoin(user.getCoin() + 10);
+        userRepository.save(user);
         Answer answer = Answer.builder()
                 .answer(request.getAnswer())
                 .user(user)
