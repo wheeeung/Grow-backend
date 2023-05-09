@@ -25,6 +25,8 @@ public class QuestionService {
     @Transactional
     public void save(QuestionRequest request){
         User user = userRepository.findByEmail(SecurityUtil.getEmail()).orElseThrow(UserNotFoundException::new);
+        user.editCoin(user.getCoin() + 10);
+        userRepository.save(user);
         Question question = Question.builder()
                 .title(request.getTitle())
                 .question(request.getQuestion())
