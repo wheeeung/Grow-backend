@@ -42,7 +42,8 @@ public class User {
     private List<Answer> answerList;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE)
+    @OneToMany
+    @JoinColumn(name = "user_id")
     private List<Skin> skinList;
 
     public void editProfile(String nickname, String image){
