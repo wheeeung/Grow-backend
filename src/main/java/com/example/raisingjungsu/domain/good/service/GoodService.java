@@ -35,6 +35,10 @@ public class GoodService {
             goodRepository.save(good);
             answer.setGoodCount(answer.getGoodCount() + 1);
             answerRepository.save(answer);
+
+            User writer = answer.getUser();
+            writer.editCoin(writer.getCoin() + 10);
+            userRepository.save(writer);
         }
         else {
             throw new GoodAlreadyExistException();
